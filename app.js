@@ -9,7 +9,7 @@ var session = require("express-session");
 require("dotenv/config");
 
 var indexRouter = require("./routes/index");
-var menuRouter = require("./routes/menu");
+var toyRouter = require("./routes/toy");
 var loginRouter = require("./routes/login");
 
 var app = express();
@@ -33,7 +33,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/menu", menuRouter);
+app.use("/toy", toyRouter);
 app.use("/login", loginRouter);
 
 // catch 404 and forward to error handler

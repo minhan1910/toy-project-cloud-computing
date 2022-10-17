@@ -12,7 +12,7 @@ router.get("/:id", async (req, res) => {
   let sesh = req.session;
 
   if (!sesh.loggedIn) {
-    res.render("menu", {
+    res.render("toy", {
       title: "Edit",
       loggedIn: false,
       error: "Invalid Request",
@@ -21,16 +21,16 @@ router.get("/:id", async (req, res) => {
     let id = req.params.id;
     let err = "";
 
-    let menu = schemas.menu;
+    let toys = schemas.toys;
     let qry = { _id: id };
 
-    let itemResult = await menu.find(qry).then((itemData) => {
+    let itemResult = await toys.find(qry).then((itemData) => {
       if (itemData == null) {
         err = "Invalid ID";
       }
 
-      res.render("menu", {
-        title: "Edit Menu",
+      res.render("toy", {
+        title: "Edit Toy",
         item: itemData,
         loggedIn: sesh.loggedIn,
         error: err,
@@ -45,10 +45,10 @@ router.get("/delete/:id", async (req, res) => {
   if (!sesh.loggedIn) {
     res.redirect("/login");
   } else {
-    let menu = schemas.menu;
-    let menuId = req.params.id;
-    let qry = { _id: menuId };
-    let deleteResult = await menu.deleteOne(qry);
+    let toys = schemas.toys;
+    let toyId = req.params.id;
+    let qry = { _id: toyId };
+    let deleteResult = await toys.deleteOne(qry);
     res.redirect("/");
   }
 });
@@ -59,23 +59,23 @@ router.post("/save", async (req, res) => {
   if (!sesh.loggedIn) {
     res.redirect("/login");
   } else {
-    let menuId = req.body.menuId;
-    let menuName = req.body.menuName;
-    let menuIcon = req.body.menuIcon;
-    let menuUrl = req.body.menuUrl;
-    let menu = schemas.menu;
+    let toyId = req.body.toyId;
+    let toyName = req.body.toyName;
+    let toyIcon = req.body.toyIcon;
+    // let menuUrl = req.body.menuUrl;
+    let toys = schemas.toys;
 
-    let qry = { _id: menuId };
+    let qry = { _id: toyId };
 
     let saveData = {
       $set: {
-        name: menuName,
-        icon: menuIcon,
-        menuUrl: menuUrl,
+        name: toyName,
+        icon: toyIcon,
+        // menuUrl: menuUrl,
       },
     };
 
-    let updateResult = await menu.updateOne(qry, saveData);
+    let updateResult = await toys.updateOne(qry, saveData);
 
     res.redirect("/");
   }
@@ -87,23 +87,22 @@ router.post("/new", async (req, res) => {
   if (!sesh.loggedIn) {
     res.redirect("/login");
   } else {
-    let menuName = req.body.menuName;
-    let menuIcon = req.body.menuIcon;
-    let menuUrl = req.body.menuUrl;
-    let menu = schemas.menu;
+    let toyName = req.body.toyName;
+    let toyIcon = req.body.toyIcon;
+    // let menuUrl = req.body.menuUrl;
+    let toys = schemas.toys;
 
-    let qry = { name: menuName };
+    let qry = { name: toyName };
 
-    let searchResults = await menu.findOne(qry).then(async (userData) => {
+    let searchResults = await toys.findOne(qry).then(async (userData) => {
       if (!userData) {
-        // ok to add menu
-        let newMenu = new schemas.menu({
-          name: menuName,
-          icon: menuIcon,
-          menuUrl: menuUrl,
+        // ok to add toy
+        let newToy = new schemas.toys({
+          name: toyName,
+          icon: toyIcon,
         });
 
-        let saveMenu = await newMenu.save();
+        let saveToy = await newToy.save();
       }
     });
 

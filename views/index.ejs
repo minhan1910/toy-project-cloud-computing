@@ -11,17 +11,21 @@
   <% if (data !=null) { data.forEach( item=> { %>
     <div class="d-flex flex-row justify-content-between mb-3">
       <div class="d-flex flex-column p-3">
-        <a href="<%= item.menuUrl %>" target="_blank"><img src="<%= item.icon %>" class="icon-img"></a>
+        <p>
+          <span>Name: </span>
+          <%= item.name %>
+        </p>
+        <a href="<%= item.toyUrl %>" target="_blank"><img src="<%= item.icon %>" class="icon-img"></a>
         <% if (loggedIn) { %>
           <div class="mb-1 p-1">
-            <a href="/menu/<%= item._id %>">Edit</a> &nbsp;
-            <a href="/menu/delete/<%= item._id %>" class="red"
+            <a href="/toy/<%= item._id %>">Edit</a> &nbsp;
+            <a href="/toy/delete/<%= item._id %>" class="red"
               onclick="return confirm('Are you sure you wish to delete this?');">Delete</a>
           </div>
           <% } %>
       </div>
-      <div class="menu-code pt-4 pl-4">
-        <a href="<%= item.menuUrl %>" target="_blank">
+      <div class="toy-code pt-4 pl-4">
+        <a href="#" target="_blank">
           <div><img src="/images/icons8-qr-code-60.png" class="url-img"></div>
           <span class="mb-2">
             View Menu

@@ -1,74 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap');
 
-html, body {
-    background-color: lightgrey;
-    font-family: 'Heebo', sans-serif
+html,
+body {
+  background-color: lightgrey;
+  font-family: 'Heebo', sans-serif
 }
 
-a, a:link, a:visited, a:hover {
+a,
+a:link,
+a:visited,
+a:hover {
   text-decoration: none;
   font-size: 14px;
 }
 
-.red {color: red;}
+.red {
+  color: red;
+}
 
 .card {
-    width: 500px;
-    border: none;
-    border-radius: 20px
+  width: 500px;
+  border: none;
+  border-radius: 20px
 }
 
 .form-control {
-    border-radius: 7px;
-    border: 1.5px solid #E3E6ED
+  border-radius: 7px;
+  border: 1.5px solid #E3E6ED
 }
 
 input.form-control:focus {
-    box-shadow: none;
-    border: 1.5px solid #E3E6ED;
-    background-color: #F7F8FD;
-    letter-spacing: 1px
+  box-shadow: none;
+  border: 1.5px solid #E3E6ED;
+  background-color: #F7F8FD;
+  letter-spacing: 1px
 }
 
 .btn-primary {
-    background-color: #5878FF !important;
-    border-radius: 7px
+  background-color: #5878FF !important;
+  border-radius: 7px
 }
 
 .btn-primary:focus {
-    box-shadow: none
+  box-shadow: none
 }
 
 .text {
-    font-size: 13px;
-    color: #9CA1A4
+  font-size: 13px;
+  color: #9CA1A4
 }
 
-.menu-code {
-    background: #F5F8FD;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    width: 100px;
-    text-align: center;
+.toy-code {
+  background: #F5F8FD;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100px;
+  text-align: center;
 }
 
 .flex-row {
-    border: 1px solid #F2F2F4;
-    border-radius: 10px;
-    margin: 0 1px 0
+  border: 1px solid #F2F2F4;
+  border-radius: 10px;
+  margin: 0 1px 0
 }
 
 .flex-column p {
-    font-size: 14px
+  font-size: 14px
 }
 
 span.mb-2 {
-    font-size: 12px;
-    color: #8896BD
+  font-size: 12px;
+  color: #8896BD
 }
 
 h5 span {
-    color: #869099
+  color: #869099
 }
 
 .footer {
@@ -82,7 +88,7 @@ h5 span {
   margin: 0 left;
 }
 
-.header-img .menu-icon {
+.header-img .toy-icon {
   float: left;
   width: 40%;
 }
@@ -92,7 +98,7 @@ h5 span {
   width: 60%;
 }
 
-.header-img .menu-icon img {
+.header-img .toy-icon img {
   float: left;
   width: 60px;
   margin-top: 20px;
@@ -103,7 +109,8 @@ h5 span {
   width: 100px;
 }
 
-img.icon-img, img.url-img {
+img.icon-img,
+img.url-img {
   height: 60px;
 }
 
@@ -117,7 +124,7 @@ img.icon-img, img.url-img {
   border: 1px solid white;
   min-width: 160px;
   border-radius: 10px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   text-align: left;
   z-index: 1;
 }
@@ -167,32 +174,38 @@ img.icon-img, img.url-img {
   padding: 20px;
 }
 
-.login-form .user-input, .login-form .pass-input, #new-menu div {
+.login-form .user-input,
+.login-form .pass-input,
+#new-toy div {
   padding: 8px;
 }
 
-.login-form .user-input input, .login-form .pass-input input, #new-menu input, .menu-edit div input {
+.login-form .user-input input,
+.login-form .pass-input input,
+#new-toy input,
+.toy-edit div input {
   width: 350px;
   padding: 8px;
   border-radius: 10px;
   border: 1px solid lightgrey;
 }
 
-#new-menu {
+#new-toy {
   display: none;
   padding-bottom: 100px;
 }
 
-.menu-edit img {
+.toy-edit img {
   height: 40px;
 }
 
-.menu-edit div, #new-menu div {
+.toy-edit div,
+#new-toy div {
   width: 100%;
   padding: 10px;
 }
 
-.menu-edit .menu-btn {
+.toy-edit .toy-btn {
   text-align: center;
 }
 
@@ -206,7 +219,8 @@ img.icon-img, img.url-img {
   font-size: 18px;
 }
 
-h2.page-title, h1.page-title {
+h2.page-title,
+h1.page-title {
   font-size: 20px;
   text-align: center;
 }
@@ -218,8 +232,8 @@ h2.page-title, h1.page-title {
 
 @media screen and (max-width: 450px) {
   .card {
-      display: flex;
-      justify-content: center;
-      text-align: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
 }

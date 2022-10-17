@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+
+    <% if (error !='' ) { %>
+        <%= error %>
+            <% } else { %>
+                <h2 class="page-title">Edit: <%= item[0].name %>
+                </h2>
+                <form action="/toy/save" method="POST">
+                    <div class="toy-edit">
+                        <div class="toy-name"><input type="text" name="toyName" value="<%= item[0].name %>"></div>
+                        <div class="toy-icon-link"><input type="text" name="toyIcon" value="<%= item[0].icon %>"> <img
+                                src="<%= item[0].icon %>"></div>
+                        <!-- <div class="toy-url"><input type="text" name="toyUrl" value="<%= item[0].toyUrl %>"></div> -->
+                        <div class="toy-btn">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-primary"
+                                onclick="javascript:location.href='/';">Cancel</button>
+                            <input type="hidden" name="toyId" value="<%= item[0]._id %>">
+                        </div>
+                    </div>
+                </form>
+                <% } %>
+
+                    <%- include('partials/footer.ejs') %>

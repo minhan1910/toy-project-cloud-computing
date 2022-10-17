@@ -4,13 +4,13 @@ var schemas = require("../models/schemas.js");
 
 /* GET home page. */
 router.get("/", async (req, res) => {
-  let menu = schemas.menu;
+  let toys = schemas.toys;
   let sesh = req.session;
 
-  let menuResult = await menu.find({}).then((menuData) => {
+  let toyResult = await toys.find({}).then((toyData) => {
     res.render("index", {
-      title: "Menu App",
-      data: menuData,
+      title: "Toy App",
+      data: toyData,
       search: "",
       loggedIn: sesh.loggedIn,
     });
@@ -23,26 +23,26 @@ router.get("/logout", (req, res) => {
 });
 
 router.post("/q", async (req, res) => {
-  let menu = schemas.menu;
+  let toys = schemas.toys;
   let q = req.body.searchInput;
-  let menuData = null;
+  let toyData = null;
   let sesh = req.session;
   let qry = { name: { $regex: "^" + q, $options: "i" } };
 
   if (q != null) {
-    let menuResult = await menu.find(qry).then((data) => {
-      menuData = data;
+    let toyResult = await toys.find(qry).then((data) => {
+      toyData = data;
     });
   } else {
     q = "Search";
-    let menuResult = await menu.find({}).then((data) => {
-      menuData = data;
+    let toyResult = await toys.find({}).then((data) => {
+      toyData = data;
     });
   }
 
   res.render("index", {
-    title: "Menu App",
-    data: menuData,
+    title: "Toy App",
+    data: toyData,
     search: q,
     loggedIn: sesh.loggedIn,
   });
